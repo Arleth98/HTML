@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>Sitemap</title> 
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style>
+.table-of-content{background-color:#fff;color:#444;font-family:Verdana,Geneva,Tahoma,Arial,Sans-serif;font-size:13px;font-weight:400;overflow:hidden;border-radius:4px;box-shadow:0 0 0 1px #eee;}
+.table-of-content .toc-header{position:relative;color:#444;font-family:inherit;font-weight:400;font-size:14px;background-color:#fff;margin:0;padding:15px;overflow:hidden;cursor:pointer;border-bottom:1px solid #eee;transition:initial;}
+.table-of-content .toc-header:hover{background-color:#fdfdfd;}
+.table-of-content .toc-header:before{content:'';width:0;height:0;position:absolute;top:22px;right:15px;border:5px solid transparent;border-color:#aaa transparent transparent;transition:all .3s ease}
+.table-of-content .toc-header.active{color:#fc4f3f}
+.table-of-content .toc-header.active:before{border-color:#fc4f3f transparent transparent;top:16px;-webkit-transform:rotate(-180deg);-moz-transform:rotate(-180deg);-ms-transform:rotate(-180deg);-o-transform:rotate(-180deg);transform:rotate(-180deg)}
+.table-of-content .loading{display:block;padding:15px;text-decoration:blink}
+.table-of-content ol{margin:0;padding:0;list-style:none;transition:initial}
+.table-of-content li{line-height:normal!important;margin:0!important;padding:8px 8px 8px 15px!important;white-space:nowrap;text-align:left;overflow:hidden;background:#fcfcfc!important;transition:initial;border-bottom:1px solid #e9e9e9;border-top:1px solid #fff;}
+.table-of-content li:first-child(border-top:0}
+.table-of-content li:last-child(border-bottom:0}
+.post ol li a,.post ol li a:link{color:#444!important;text-decoration:none;font-size:86%;transition:initial}
+.post ol li a:visited{color:#999;transition:initial}
+.post ol li a:link:hover,.post ol li a:visited:hover{color:#fc4f3f;text-decoration:underline;transition:initial}
+.post ol li:before{display:none}
+ol {text-shadow:initial;}
+.post a:link {color:#444!important;}
+</style>
+</head> 
+<body>
+<div class="table-of-content" id="table-of-content"><span class="loading">Memuat konten...</span></div><script>
+var toc_config = {
+    url: 'https://arleth-desz.blogspot.co.id/',
+    containerId: 'table-of-content',
+    showNew: 5,
+    newText: ' <strong style="font-weight:normal;font-style:normal;color:#fff;font-size:11px;background:#fc7569;padding:1px 6px 2px 6px;line-height:normal;float:right;border-radius:3px;text-transform:uppercase;">baru</strong>',
+    sortAlphabetically: {
+        thePanel: true,
+        theList: true
+    },
+    maxResults: 9999,
+    activePanel: 0,
+    slideSpeed: {
+        down: 400,
+        up: 400
+    },
+    slideEasing: {
+        down: null,
+        up: null
+    },
+    slideCallback: {
+        down: function() {},
+        up: function() {}
+    },
+    clickCallback: function() {},
+    jsonCallback: '_toc',
+    delayLoading: 0
+};
+</script>
+
+<br />
+
+<script>
+/**
+ * BLOGGER TOC WITH ACCORDION EFFECT (SORT BY LABEL)
+ * ---------------------------------------------------
+ * by Taufik Nurrohman
+ * URL: http://gplus.to/tovic
+ * ---------------------------------------------------
+ */
+
+/*
+var toc_config = {
+ url: 'https://arleth-desz.blogspot.co.id/',
+ containerId: 'table-of-content',
+ showNew: 15,
+ newText: ' <strong style="font-weight:normal;font-style:normal;color:#fff;font-size:11px;background:#5c5a78;padding:1px 6px 3px 6px;line-height:normal;float:right;border-radius:3px;">baru</strong>',
+ sortAlphabetically: {
+  thePanel: true,
+  theList: true
+ },
+ maxResults: 9999,
+ activePanel: 1,
+ slideSpeed: {
+  down: 400,
+  up: 400
+ },
+ slideEasing: {
+  down: null,
+  up: null
+ },
+ slideCallback: {
+  down: function() {},
+  up: function() {}
+ },
+ clickCallback: function() {},
+ jsonCallback: '_toc',
+ delayLoading: 0
+};
+*/
+!function(e,o){var t=o.getElementById(toc_config.containerId),c=o.getElementsByTagName("head")[0],n=[];e[toc_config.jsonCallback]=function(e){for(var o,c,i=e.feed.entry,a=e.feed.category,l="",s=0,d=a.length;d>s;++s)n.push(a[s].term);for(var r=0,f=i.length;f>r;++r)(toc_config.showNew||toc_config.showNew>0)&&r<toc_config.showNew+1&&(i[r].title.$t+=" %new%");i=toc_config.sortAlphabetically.theList?i.sort(function(e,o){return e.title.$t.localeCompare(o.title.$t)}):i,toc_config.sortAlphabetically.thePanel&&n.sort();for(var g=0,h=n.length;h>g;++g){l+='<h3 class="toc-header">'+n[g]+"</h3>",l+='<div class="toc-content"><ol>';for(var _=0,p=i.length;p>_;++_){o=i[_].title.$t;for(var w=0,u=i[_].link.length;u>w;++w)if("alternate"==i[_].link[w].rel){c=i[_].link[w].href;break}for(var v=0,m=i[_].category.length;m>v;++v)n[g]==i[_].category[v].term&&(l+='<li><a href="'+c+'">'+o.replace(/ \%new\%$/,"")+"</a>"+(o.match(/\%new\%/)?" "+toc_config.newText:"")+"</li>")}l+="</ol></div>"}t.innerHTML=l,"undefined"!=typeof jQuery&&($("#"+toc_config.containerId+" .toc-content").hide(),$("#"+toc_config.containerId+" .toc-header").click(function(){$(this).hasClass("active")||(toc_config.clickCallback(this),$("#"+toc_config.containerId+" .toc-header").removeClass("active").next().slideUp(toc_config.slideSpeed.up,toc_config.slideEasing.up,toc_config.slideCallback.up),$(this).addClass("active").next().slideDown(toc_config.slideSpeed.down,toc_config.slideEasing.down,toc_config.slideCallback.down))}).eq(toc_config.activePanel-1).addClass("active").next().slideDown(toc_config.slideSpeed.down,toc_config.slideEasing.down,toc_config.slideCallback.down))};var i=o.createElement("script");i.src=toc_config.url.replace(/\/$/,"")+"/feeds/posts/summary?alt=json-in-script&max-results="+toc_config.maxResults+"&callback="+toc_config.jsonCallback,"onload"==toc_config.delayLoading?e.onload=function(){c.appendChild(i)}:e.setTimeout(function(){c.appendChild(i)},toc_config.delayLoading)}(window,document);
+</script>
+</body> 
+</html> 
