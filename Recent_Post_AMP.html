@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Related Post</title>
+<title>Recent Post</title>
 <meta content='width=device-width, initial-scale=1' name='viewport'>
 <style>
 body {background-color:transparent;margin:0;padding:0;overflow:hidden;}
@@ -14,22 +14,6 @@ h2.recent-post-title {color: #333;font-weight: 600;font-size: 14px;line-height: 
 .recent-posts-details span.dett {background: #d71149;color: #fff;display: inline;margin: 0;padding: 2px 7px;}
 .recent-posts-details span.redmore {background: #333;color: #fff;padding: 2px 7px;display: inline-block;}
 </style>
-<script>
-function getQueryVariable(variable) {
-var query = window.location.search.substring(1);
-var vars = query.split("&");
-for (var i=0;i<vars.length;i++) {
-var pair = vars[i].split("=");
-if(pair[0] == variable){return pair[1];}
-}
-return(false);
-}
-var domain = getQueryVariable("url");
-var colorlink = getQueryVariable("color");
-var colorback = getQueryVariable("back");
-var desc = getQueryVariable("item");
-var styles = getQueryVariable("style");
-</script>
 </head>
 <body>
 <script>
@@ -50,6 +34,5 @@ document.write(_),document.write("</div>"),document.write("</li>")}document.writ
 $(document).ready(function() {$('img.recent-post-thumb').attr('src', function(i, src) 
 {return src.replace( 's72-c', 'w130-h110-c' );});});
 </script>
-<script src="http://'+domain+'/feeds/posts/default?orderby=published&alt=json-in-script&callback=showlatestpostswiththumbs"></script>
 </body>
 </html>
