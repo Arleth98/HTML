@@ -22,18 +22,6 @@
 @media only screen and (max-width:640px){#carousel{display:none;}}
 </style>
 <script>
-function getQueryVariable(variable) {
-var query = window.location.search.substring(1);
-var vars = query.split("&");
-for (var i=0;i<vars.length;i++) {
-var pair = vars[i].split("=");
-if(pair[0] == variable){return pair[1];}
-}
-return(false);
-}
-var domain = getQueryVariable("url");
-</script>
-<script>
 (function($){$.fn.jCarouselLite=function(o){o=$.extend({btnPrev:null,btnNext:null,btnGo:null,mouseWheel:false,auto:null,speed:200,easing:null,vertical:false,circular:true,visible:3,start:0,scroll:1,beforeStart:null,afterEnd:null},o||{});return this.each(function(){var running=false,animCss=o.vertical?"top":"left",sizeCss=o.vertical?"height":"width";var div=$(this),ul=$("ul:first",div),tLi=$(".wraps",ul),tl=tLi.size(),v=o.visible;if(o.circular){ul.prepend(tLi.slice(tl-v-1+1).clone()).append(tLi.slice(0,v).clone());o.start+=v;}
 var li=$(".wraps",ul),itemLength=li.size(),curr=o.start;div.css("visibility","visible");li.css({overflow:"hidden",float:o.vertical?"none":"left"});ul.css({padding:"0",position:"relative","list-style-type":"none","z-index":"1"});div.css({overflow:"hidden","z-index":"2"});var liSize=o.vertical?height(li):width(li);var ulSize=liSize*itemLength;var divSize=liSize*v;li.css({width:li.width()});ul.css(sizeCss,ulSize+"px").css(animCss,-(curr*liSize));div.css(sizeCss,divSize+"px");if(o.btnPrev)
 $(o.btnPrev).click(function(){return go(curr-o.scroll);});if(o.btnNext)
@@ -53,7 +41,7 @@ imgr=new Array();imgr[0]="http://2.bp.blogspot.com/-uitX7ROPtTU/Tyv-G4NA_uI/AAAA
 <div id='previous_button'/>
 <div class='container'>
 <script>
-document.write("<script src=\"/feeds/posts/default?max-results="+numposts1+"&amp;orderby=published&amp;alt=json-in-script&amp;callback=showrecentposts\"><\/script>");
+document.write("<script src=\"<data:blog.url/>/feeds/posts/default?max-results="+numposts1+"&amp;orderby=published&amp;alt=json-in-script&amp;callback=showrecentposts\"><\/script>");
 </script>    
 <div class='clear'/>
 </div>
