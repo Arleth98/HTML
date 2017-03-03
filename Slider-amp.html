@@ -32,10 +32,6 @@ if(pair[0] == variable){return pair[1];}
 return(false);
 }
 var domain = getQueryVariable("url");
-var colorlink = getQueryVariable("color");
-var colorback = getQueryVariable("back");
-var desc = getQueryVariable("item");
-var styles = getQueryVariable("style");
 </script>
 <script>
 (function($){$.fn.jCarouselLite=function(o){o=$.extend({btnPrev:null,btnNext:null,btnGo:null,mouseWheel:false,auto:null,speed:200,easing:null,vertical:false,circular:true,visible:3,start:0,scroll:1,beforeStart:null,afterEnd:null},o||{});return this.each(function(){var running=false,animCss=o.vertical?"top":"left",sizeCss=o.vertical?"height":"width";var div=$(this),ul=$("ul:first",div),tLi=$(".wraps",ul),tl=tLi.size(),v=o.visible;if(o.circular){ul.prepend(tLi.slice(tl-v-1+1).clone()).append(tLi.slice(0,v).clone());o.start+=v;}
@@ -57,7 +53,7 @@ imgr=new Array();imgr[0]="http://2.bp.blogspot.com/-uitX7ROPtTU/Tyv-G4NA_uI/AAAA
 <div id='previous_button'/>
 <div class='container'>
 <script>
-document.write("<script src=\"'+url+"/feeds/posts/default?max-results="+numposts1+"&amp;orderby=published&amp;alt=json-in-script&amp;callback=showrecentposts\"><\/script>");
+document.write("<script src=\"/feeds/posts/default?max-results="+numposts1+"&amp;orderby=published&amp;alt=json-in-script&amp;callback=showrecentposts\"><\/script>");
 </script>    
 <div class='clear'/>
 </div>
