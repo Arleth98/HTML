@@ -1,0 +1,161 @@
+﻿<style>
+#atas .widget-content {position: relative;}
+h3.lts {clear: both;padding: 7px 0;font-size: 17px;line-height: 20px;margin-bottom: 10px;color: #d71149;overflow: hidden;padding-left: 5px;text-transform: uppercase;border-bottom: 3px solid #d71149;}
+.caroul-title{background:#333;color:#FFF;border-bottom:3px solid #d71149;font-size:12pt;margin:0;margin-top:2px;padding:8px;border-radius:0 0 25px 0}
+#mbt-c{margin:0 5px;border:0;font-family:'TItillium Web', sans-serif}
+.flexslider .slides{list-style-type:none;margin:0 auto 10px auto;padding:0}
+#mbt-c li{color:#666;font-family:helvetica;font-size:12px;overflow:hidden;position:relative;padding-top:10px;line-height:1.6em}
+#mbt-c .flex-control-nav{list-style:none outside none;position:absolute;top:0px;right:5px;text-align:right;float:right;height:10px}
+.flexslider .flex-control-nav li{display:inline-block;margin:0 2px}
+.flexslider .flex-control-nav a{text-indent:9999px;display:block;width:10px;cursor:pointer;height:10px;background-color:#000;border:1px solid #000;border-radius:0!important}
+.flexslider .flex-control-nav a.flex-active{background-color:rgb(132,219,6);border:1px solid rgb(144,241,40)}
+#mbt-c .flex-div{margin:0 auto 20px auto;display:block;border-bottom:0 solid #EEE;padding-bottom:20px!important;position:relative}
+#mbt-c li a{color:#0080ff;text-decoration:none}
+.flexslider i{color:#999;padding-right:5px}
+.flexslider .iline{line-height:2em;margin-top:3px}
+.flexslider .icontent{line-height:1.5em;margin-top:5px}
+.flexslider div span{margin:0 5px 0 0;display:inline-block;font-weight:normal}
+#mbt-c .mbttitle{font-family:'Roboto',sans-serif;font-size:13px;color:#666;font-weight:700;text-decoration:none;white-space:nowrap}
+#mbt-c .mbttitle:hover{color:#D71149}
+.flexslider .itotal a:hover{color:#333;text-decoration:none}
+.flexslider .iedit a{text-decoration:none;color:#999;cursor:pointer}
+.flexslider .iedit:before,.flexslider .iauthor:before,.flexslider .itag:before,.flexslider .icomments:before,.flexslider .idate:before,.flexslider .itotal span:before{font-family:fontAwesome;position:relative;padding-right:8px;color:#999}
+.flexslider .iauthorpic{width:17px!important;height:17px!important;border-radius:50%;float:none;display:inline-block!important;margin:0 0 0 0;padding-right:3px;position:relative;top:3px}
+#mbt-c .iFeatured{overflow:hidden;position:relative;margin:0 0 10px 0;padding:0;width:100%;height:200px}
+.flexslider .iFeatured a{background:none;padding:0;display:block;border:1px solid #EEE}
+#mbt-c .iFeatured img{width:100%!important;height:auto;-moz-transition:all .3s;-webkit-transition:all .3s;transition:all .3s;border-radius:2px}
+.flexslider .iFeatured:hover img{opacity:1;-moz-transform:scale(1.4);-webkit-transform:scale(1.4);transform:scale(1.4)}
+.flexslider .icomments a{color:#0080ff;font-family:arial;font-size:12px}
+.flexslider .icomments a:hover{text-decoration:underline}
+.flexslider .icomments:before{content:'\f086';padding:0 3px 0 7px;color:#84DB06}
+.flexslider .idate{position:absolute;left:0;top:-7px;background:rgb(132,219,6);color:#FFF;padding:3px 4px;font-family:oswald;font-size:11px;border:1px solid rgb(144,241,40)}
+.flexslider .idate div{width:18px;line-height:1.6em;text-align:center}
+.flexslider .idate:after{content:' ';position:absolute;z-index:-9999px;width:0;height:0;left:25px;top:-1px;border-width:4px 6px;border-style:solid;border-color:transparent transparent rgb(125,208,4)  rgb(125,208,4)}
+</style>
+<script>
+document.write("<script src=\'https:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/2.1.4\/jquery.min.js\'><\/script>");
+document.write("<link href=\'https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/flexslider\/2.6.1\/flexslider.min.css\'/>");
+document.write("<script src=\'https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/flexslider\/2.6.1\/jquery.flexslider.min.js\'><\/script>");
+</script>
+<script type="text/javascript"> 
+  $(window).load(function() { 
+    $('#mbt-c').flexslider({ 
+        animation: "slide", 
+        directionNav: false, 
+         itemWidth: 200, 
+        itemMargin: 15, 
+       touch: true,  
+       slideshowSpeed: 2500, 
+      pauseOnHover: true, 
+     animationSpeed: 700, 
+    }); 
+  }); 
+</script>
+<h3 class="lts"><i aria-hidden='true' class='fa fa-headphones'> NEW ADDED OST</i></h3> 
+<div class="flexslider" id="mbt-c">
+<ul class="slides"> 
+<script type="text/javascript">
+//################### Defaults 
+var ListBlogLink = "https://iahime.blogspot.co.id/"; 
+var ListCount = 9; 
+var ListLabel = "Ost"; 
+var TitleCount = 66; 
+var ImageSize = 150; 
+//################### Function Start 
+function mbtcarousel(json) { 
+for (var i = 0; i < ListCount; i++) 
+{  
+//################### Variables Declared 
+var listing= ListImage = ListUrl = ListTitle = ListImage = ListContent = ListConten = ListAuthor = ListTag = ListDate = ListUpdate = ListComments = thumbUrl = TotalPosts = sk = AuthorPic= ListMonth = Y = D = M = m = YY = DD = MM = mm = TT =  ""; 
+//################### Category 
+if (json.feed.entry[i].category != null) 
+{ 
+for (var k = 0; k < json.feed.entry[i].category.length; k++) { 
+ListTag += "<a href='"+ListBlogLink+"/search/label/"+json.feed.entry[i].category[k].term+"'>"+json.feed.entry[i].category[k].term+"</a>"; 
+if(k < json.feed.entry[i].category.length-1) 
+{ ListTag += " ";} 
+} 
+} 
+//################### URL 
+for (var j = 0; j < json.feed.entry[i].link.length; j++) { 
+      if (json.feed.entry[i].link[j].rel == 'alternate') { 
+        break; 
+      } 
+    } 
+ListUrl= "'" + json.feed.entry[i].link[j].href + "'"; 
+//################### Info 
+TotalPosts = json.feed.openSearch$totalResults.$t; 
+if (json.feed.entry[i].title!= null) 
+{ 
+ListTitle= json.feed.entry[i].title.$t.substr(0, TitleCount); 
+} 
+if (json.feed.entry[i].thr$total) 
+{ 
+ListComments= "<a href='"+json.feed.entry[i].link[j].href+"#comment-form'>"+json.feed.entry[i].thr$total.$t+"</a>"; 
+} 
+ListAuthor= json.feed.entry[i].author[0].name.$t.split(" "); 
+ListAuthor=ListAuthor.slice(0, 1).join(" "); 
+AuthorPic = json.feed.entry[i].author[0].gd$image.src; 
+//################### Date Format 
+ListMonth= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; 
+ListDate= json.feed.entry[i].published.$t.substring(0,10); 
+                         Y = ListDate.substring(0, 4); 
+                        m = ListDate.substring(5, 7); 
+                         D = ListDate.substring(8, 10); 
+                         M = ListMonth[parseInt(m - 1)];                       
+ListUpdate= json.feed.entry[i].updated.$t.substring(0, 16); 
+                         YY = ListUpdate.substring(0, 4); 
+                        mm = ListUpdate.substring(5, 7); 
+                         DD = ListUpdate.substring(8, 10); 
+                         TT = ListUpdate.substring(11, 16); 
+                         MM = ListMonth[parseInt(mm - 1)];   
+//################### Thumbnail Check 
+if (json.feed.entry[i].media$thumbnail!=null) 
+{ 
+thumbUrl = json.feed.entry[i].media$thumbnail.url; 
+sk= thumbUrl.replace("/s72-c/","/s"+ImageSize+"/"); 
+ListImage= "'" + sk.replace("?imgmax=800","") + "'"; 
+} 
+// YouTube scan 
+else if (json.feed.entry[i].content.$t.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/) != null) 
+{ 
+    var youtube_id = json.feed.entry[i].content.$t.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop(); 
+    
+    if (youtube_id.length == 11) { 
+        var ListImage = "'//img.youtube.com/vi/"+youtube_id+"/0.jpg'"; 
+        } 
+} 
+else if (json.feed.entry[i].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null) 
+{ 
+// Support For 3rd Party Images 
+ListImage =  json.feed.entry[i].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1]; 
+} 
+else 
+{ 
+ListImage= "'http://4.bp.blogspot.com/-HALLtgFeep0/VfryhQ0C5oI/AAAAAAAAPcY/77mSGND4q84/s200/Icon.png'"; 
+} 
+//###################  Printing List 
+var listing = "<li><div class='flex-div'><div class='iFeatured'><a  href=" 
++ ListUrl+ 
+  "><img src=" 
++ListImage+ 
+"/></a></div><a class='mbttitle' href=" 
++ListUrl+ 
+"target='_blank'>" 
++ListTitle+ 
+"</a><div class='iline'><span class='iauthor'><img class='iauthorpic' src='"+AuthorPic+"'/>" 
++ListAuthor+ 
+"</span><span class='icomments'>" 
++ListComments + 
+"</span> <span class='idate'><div>" 
++ D + 
+"</div><div> " 
++ M + 
+"</div></span></div></div></li>"; 
+document.write(listing); 
+} } 
+<!-- #### Invoking the Callback Function #### --> 
+document.write("<script src='"+ListBlogLink+"/feeds/posts/default/-/"+ListLabel+"?alt=json-in-script&callback=mbtcarousel'></"+"script>"); 
+document.write("<script type=\'text\/javascript\'>\/\/<![CDATA[\r\n$(document).ready(function() {$(\'#mbt-c .iFeatured img\').attr(\'src\', function(i, src) \r\n{return src.replace( \'s150\', \'s300\' );});});\r\n\/\/]]><\/script>");
+</script> 
+</ul></div>
