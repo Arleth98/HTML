@@ -42,6 +42,29 @@ h3.lts {clear: both;padding: 7px 0;font-size: 17px;line-height: 20px;margin-bott
 </style>
 </head>
 <body>
+<script>
+window.addEventListener('message', receiveMessage, false);
+function receiveMessage(event) {
+	if (event.data) {
+		var msg;
+		try {
+			msg = JSON.parse(event.data);
+		} catch (err) {
+			// Do nothing
+		}
+		if (!msg)
+			return false;
+
+		if (msg.name === 'resize') {
+			window.parent.postMessage({
+			  sentinel: 'amp',
+			  type: 'embed-size',
+			  height: msg.data.height
+			}, '*');
+		}
+	}
+}
+</script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/flexslider.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js"></script>
 <script type="text/javascript"> 
@@ -58,11 +81,36 @@ h3.lts {clear: both;padding: 7px 0;font-size: 17px;line-height: 20px;margin-bott
     }); 
   }); 
 </script>
+<script>
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (pair[0] == variable) {
+        return pair[1];
+      }
+    }
+    return (false);
+  }
+
+  var css = '#mbt-c {font-family:' + getQueryVariable('fontBodyFamily') + '} a {color:#' + getQueryVariable('fontLinkColor') + '}',
+    head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+style.type = 'text/css';
+if (style.styleSheet){
+  style.styleSheet.cssText = css;
+} else {
+  style.appendChild(document.createTextNode(css));
+}
+head.appendChild(style);
+</script>
+
 <h3 class="lts"><i aria-hidden='true' class='fa fa-headphones'></i> NEW ADDED OST</h3> 
 <div class="flexslider" id="mbt-c">
 <ul class="slides"> 
 <script type="text/javascript">
-var ListBlogLink = "https://iahime.blogspot.co.id/"; 
+var ListBlogLink = function () { this.page.url = getQueryVariable("url");}; 
 var ListCount = 9; 
 var ListLabel = "Ost"; 
 var TitleCount = 66; 
