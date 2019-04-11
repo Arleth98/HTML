@@ -73,8 +73,11 @@ function showToc(){if(tocLoaded){displayToc(postFilter);var b=document.getElemen
 function hideToc(){var d=document.getElementById("toc");d.innerHTML="";
 var c=document.getElementById("toclink");c.innerHTML='<a href="#" onclick="scroll(0,0); showToc(); Effect.toggle(\'toc-result\',\'blind\');">?? Menampilkan Daftar Isi</a> <img src="http://radiorodja.googlepages.com/new_1.gif"/>'}
 function looptemp2(){for(var b=0;b<numberfeed;b++){document.write("");
+var homepage = getQueryVariable("Url");
 document.write('Post Link    : <a href="'+postUrl[b]+'">'+postTitle[b]+"</a>");document.write('Download mp3  : <a href="'+postMp3[b]+'">'+postTitle[b]+"</a>");document.write("")}};
-//
+document.write("<scr" + "ipt type=\"text/javascript\" src=\""+homepage+"/feeds/posts/default?orderby=published&alt=json-in-script&callback=read_contentz\"></scr" + "ipt>");
+
+ //
  function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split('&');
@@ -89,6 +92,4 @@ document.write('Post Link    : <a href="'+postUrl[b]+'">'+postTitle[b]+"</a>");d
 </script>
 </div>
 
-
-<script src="' + getQueryVariable(homepage) + '/feeds/posts/default?max-results=9999&amp;alt=json-in-script&amp;callback=loadtoc"></script><br />
 </div> 
