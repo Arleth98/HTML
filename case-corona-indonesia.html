@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Corona Indonesia</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+var d = new Date();
+$("#date").html(d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear());
+    $.ajax({url: "https://api.kawalcorona.com/indonesia/", success: function(result){
+     $("#terjangkit").html(result[0].positif);
+     $("#sembuh").html(result[0].sembuh);
+     $("#meninggal").html(result[0].meninggal);
+    }});
+});
+</script>
+<div class="_wrapx _shadowx img-card">
+	<div class="_box-body">
+		<div class="d-flex">
+			<div class="_img-box"> <img src="https://kawalcorona.com/uploads/indonesia-PZq.png" width="50" height="50" alt="Positif" /> </div>
+			<p class="_country">COVID-19 INDONESIA</p>
+			<p class="_case"><b> <span id='terjangkit' class="_case-positif"></span></b> POSITIF, <b><span id='sembuh' class="_clean"></span></b> SEMBUH, <br/><b><span id='meninggal' class="_case-die"></span></b> MENINGGAL</p>
+			<p class="_update">Update Hari ini: <span id="date"></span></p>
+		</div>
+	</div>
+</div>
+<style>
+	._box-body {margin: 0;padding: 20px;position: relative;}
+	._shadowx{box-shadow: 0 5px 10px rgba(19, 191, 166, 0.3) !important;}
+	.img-card:before {content: '';position: absolute;background: url(https://kawalcorona.com/data/images/svgs/circle.svg);background-position: top right;background-repeat: no-repeat;width: 100%;height: 100%;opacity: 0.8;right:0px;top:0px}
+	._img-box {float: right;position: relative;top: 5px;}
+	._wrapx {background:#15181c;color: #fff !important;}
+	._country{font-size:30px;margin:0px !important}
+	._case{padding:5px 0px;margin:0px !important;line-height:30px}
+	._update{font-size:20px;margin:0px !important}
+	._case-positif{padding:5px 7px 5px 5px;background: #f82649!important;}
+	._clean{padding:5px 7px 5px 5px;background: #09ad95!important;}
+	._case-die{padding:5px 7px 5px 5px;background: #d43f8d !important;}
+</style>
+</body>
+</html>
